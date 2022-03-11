@@ -2,14 +2,15 @@ import { Cosmetic } from '../models/Cosmetic';
 
 interface CosmeticListProps {
   list: Cosmetic[];
+  remove: (id: string) => void;
 }
 
-export function CosmeticList({ list }: CosmeticListProps) {
+export function CosmeticList({ list, remove }: CosmeticListProps) {
   return (
     <ul className="divide-y divide-gray-200">
       {list?.map((person) => (
-        <li key={person.id} className="py-4 flex">
-          <div className="justify-between">
+        <li key={person.id} className="py-4">
+          <div className="flex justify-between">
             <div className="ml-3">
               <p className="text-sm font-medium text-gray-900">{person.name}</p>
               <p className="text-sm text-gray-500">{person.amount}</p>
@@ -17,9 +18,10 @@ export function CosmeticList({ list }: CosmeticListProps) {
             <div>
               <button
                 type="button"
-                className="bg-red-900 text-center w-8 border-rad rounded-sm"
+                className="btn btn-red"
+                onClick={() => remove(person.id)}
               >
-                1
+                delete
               </button>
             </div>
           </div>

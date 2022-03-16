@@ -1,3 +1,5 @@
+// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Cosmetic } from '../models/Cosmetic';
 
 interface CosmeticListProps {
@@ -8,18 +10,24 @@ interface CosmeticListProps {
 export function CosmeticList({ list, remove }: CosmeticListProps) {
   return (
     <ul className="divide-y divide-gray-200">
-      {list?.map((person) => (
-        <li key={person.id} className="py-4">
-          <div className="flex justify-between">
-            <div className="ml-3">
-              <p className="text-sm font-medium text-gray-900">{person.name}</p>
-              <p className="text-sm text-gray-500">{person.amount}</p>
+      {list?.map((item) => (
+        <li key={item.id} className="py-4">
+          <div className="flex justify-between items-center opacity[-67]">
+            <div>
+              <Link
+                style={{ display: 'block', margin: '1rem 0' }}
+                to={`/invoices/${item.id}`}
+                key={item.id}
+              >
+                <p className="text-sm font-medium text-gray-900">{item.name}</p>
+                <p className="text-sm text-gray-500">{item.amount}</p>
+              </Link>
             </div>
             <div>
               <button
                 type="button"
                 className="btn btn-red"
-                onClick={() => remove(person.id)}
+                onClick={() => remove(item.id)}
               >
                 delete
               </button>

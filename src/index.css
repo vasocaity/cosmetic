@@ -15,12 +15,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.btn {
-  @apply font-bold py-2 px-4 rounded;
+
+@layer components {
+  .btn {
+    @layer font-bold py-2 px-4 rounded;
+  }
+  .btn-red {
+    @layer bg-red-500 text-white;
+  }
+  .btn-red:hover {
+    @layer bg-red-700;
+  }
 }
-.btn-red {
-  @apply bg-red-500 text-white;
+input[type=radio].radiobutton:checked {
+  --background: #7e5513;
 }
-.btn-red:hover {
-  @apply bg-red-700;
+input[type=radio].radiobutton {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: var(--background);
+  border-radius: 100%;
+  border: var(--border);
+  margin: 0px;
+}
+input[type=radio].radiobutton {
+  --background: #ffffff;
+  --inner-dot-display: block;
+  --border: 1px solid #7e5513;
+}
+input[type=radio].radiobutton::after {
+  content: "";
+  display: var(--inner-dot-display);
+  position: relative;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #ffffff;
+}
+.label-disabled {
+  opacity: 0.6;
 }

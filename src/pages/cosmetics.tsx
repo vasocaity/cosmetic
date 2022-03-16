@@ -35,7 +35,7 @@ export default function Cosmetics() {
     errorMsg: 'text-red-500 text-sm',
   };
   return (
-    <div className="mx-auto max-w-lg">
+    <div className="mx-auto max-w-lg rounded bg-white shadow-md p-3">
       <div className="text-center">Cosmetic</div>
       <div className="">
         <CosmeticForm styles={styles} val={add} />

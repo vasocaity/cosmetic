@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import Radio from './Radio';
+import RadioGroup from './RadioGroup';
 
 export function CosmeticForm({ styles, val }: any) {
   const cosmeticSchema = yup.object().shape({
@@ -14,7 +14,7 @@ export function CosmeticForm({ styles, val }: any) {
       initialValues={{
         name: '',
         amount: '',
-        testRadio: '',
+        testRadio: '1',
       }}
       onSubmit={(values) => {
         console.log(values);
@@ -39,8 +39,22 @@ export function CosmeticForm({ styles, val }: any) {
           name="amount"
         />
         <ErrorMessage component="a" className={styles.errorMsg} name="amount" />
-        <Radio label="one" name="testRadio" value="one" />
-        <Radio label="two" name="testRadio" value="two" disabled />
+        <div className="mt-2">
+          <RadioGroup
+            radios={[
+              {
+                label: '1',
+                name: 'testRadio',
+                value: '1',
+              },
+              {
+                label: '2',
+                name: 'testRadio',
+                value: '2',
+              },
+            ]}
+          />
+        </div>
         <div className="mt-8">
           <button type="submit" className={styles.button}>
             Add

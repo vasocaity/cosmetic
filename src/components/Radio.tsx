@@ -8,22 +8,18 @@ interface RadioProps {
 }
 
 export default function Radio({ ...props }: RadioProps) {
+  const labelDisabled = props.disabled ? 'label-disabled' : '';
   return (
-    <div className="items-center flex">
-      <label
-        htmlFor={props.name}
-        className={props.disabled ? 'label-disabled' : ''}
-      >
-        <Field
-          type="radio"
-          className="radiobutton"
-          name={props.name}
-          value={props.value}
-          disabled={props.disabled}
-        />
-        <span className="pl-1">{props.label}</span>
-      </label>
-    </div>
+    <>
+      <Field
+        type="radio"
+        className="radiobutton"
+        name={props.name}
+        value={props.value}
+        disabled={props.disabled}
+      />
+      <span className={`px-1 ${labelDisabled}`}>{props.label}</span>
+    </>
   );
 }
 

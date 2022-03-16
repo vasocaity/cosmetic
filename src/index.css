@@ -28,7 +28,7 @@ code {
   }
 }
 input[type=radio].radiobutton:checked {
-  --background: #7e5513;
+  --background: #1d160b;
 }
 input[type=radio].radiobutton {
   -webkit-appearance: none;
@@ -44,7 +44,7 @@ input[type=radio].radiobutton {
 input[type=radio].radiobutton {
   --background: #ffffff;
   --inner-dot-display: block;
-  --border: 1px solid #7e5513;
+  --border: 1px solid #1d160b;
 }
 input[type=radio].radiobutton::after {
   content: "";
@@ -56,6 +56,11 @@ input[type=radio].radiobutton::after {
   height: 6px;
   border-radius: 100%;
   background: #ffffff;
+}
+input[type=radio].radiobutton:disabled {
+  background: rgba(0, 0, 0, 0.1);
+  --border: 1px solid rgba(0, 0, 0, 0.1);
+  --inner-dot-display: none;
 }
 .label-disabled {
   opacity: 0.6;

@@ -51,6 +51,7 @@ export function CosmeticForm({ styles, val }: any) {
                 label: '2',
                 name: 'testRadio',
                 value: '2',
+                disabled: true,
               },
             ]}
           />
